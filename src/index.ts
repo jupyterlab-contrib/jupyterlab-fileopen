@@ -69,8 +69,8 @@ const extension: JupyterFrontEndPlugin<void> = {
       },
       icon: folderIcon,
       // TODO Translation
-      // label: trans.__('Open Containing Folder')
-      label: 'Open Containing Folder'
+      // label: trans.__('Reveal In File Explorer')
+      label: 'Reveal In File Explorer'
     });
 
     app.commands.addCommand(CommandIDs.openFile, {
