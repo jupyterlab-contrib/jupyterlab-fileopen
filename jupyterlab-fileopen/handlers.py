@@ -14,7 +14,7 @@ except ImportError:
     hybridcontents = None
 
 
-class FileOpenHandler(APIHandler):
+class BaseHandler(APIHandler):
 
     @functools.lru_cache()
     def url2localpath(
@@ -34,6 +34,9 @@ class FileOpenHandler(APIHandler):
         local_path = os.path.join(os.path.expanduser(cm.root_dir), url2path(path))
         return (local_path, cm) if with_contents_manager else local_path
 
+
+class FileExplorerHandler(BaseHandler):
+
     @tornado.web.authenticated
     async def post(self):
         data = self.get_json_body()
@@ -44,7 +47,6 @@ class FileOpenHandler(APIHandler):
             subprocess.Popen(["xdg-open", path])
         elif sys.platform == "darwin":
             subprocess.Popen(["open", "-R", path])
-            pass
         elif sys.platform == "win32":
             if os.environ["SystemRoot"]:
                 command = os.path.join(os.environ["SystemRoot"], 'explorer.exe')
@@ -58,12 +60,30 @@ class FileOpenHandler(APIHandler):
         }))
 
 
+class FileOpenHandler(BaseHandler):
+
+    @tornado.web.authenticated
+    async def post(self):
+        data = self.get_json_body()
+
+        path = self.url2localpath(data["path"])
+
+        if sys.platform == "linux" or sys.platform == "linux2":
+            subprocess.Popen(["xdg-open", path])
+        elif sys.platform == "darwin" or sys.platform == "win32":
+            subprocess.Popen(["open", path])
+
+        self.finish(json.dumps({
+            "success": True
+        }))
+
+
 def setup_handlers(web_app):
     host_pattern = ".*$"
 
     base_url = web_app.settings["base_url"]
-    route_pattern = url_path_join(
-        base_url, "jupyterlab-fileopen", "open-file-explorer"
-    )
-    handlers = [(route_pattern, FileOpenHandler)]
+    handlers = [
+        (url_path_join(base_url, "jupyterlab-fileopen", "open-file-explorer"), FileExplorerHandler),
+        (url_path_join(base_url, "jupyterlab-fileopen", "open-file"), FileOpenHandler),
+    ]
     web_app.add_handlers(host_pattern, handlers)
