@@ -1,0 +1,8 @@
+name: jupyterlab-fileopen
+channels:
+  - conda-forge
+dependencies:
+  - yarn
+  - jupyterlab
+  - jupyter-packaging
+  - flake8
