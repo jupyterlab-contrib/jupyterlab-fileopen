@@ -13,26 +13,20 @@ import { folderIcon } from '@jupyterlab/ui-components';
 
 import { requestAPI } from './handler';
 
-
 const selectorItem = '.jp-DirListing-item[data-isdir]';
-
 
 /**
  * The command IDs.
  */
 namespace CommandIDs {
-
   export const openFileExplorer = 'jupyterlab-fileopen:open-file-explorer';
-
 }
 
-export interface Response {
-
+export interface IResponse {
   /*
    * Whether the request was a success or not.
    */
   success: boolean;
-
 }
 
 /**
@@ -40,9 +34,7 @@ export interface Response {
  */
 const extension: JupyterFrontEndPlugin<void> = {
   id: 'jupyterlab-fileopen:plugin',
-  requires: [
-    IFileBrowserFactory
-  ],
+  requires: [IFileBrowserFactory],
   autoStart: true,
   activate: (app: JupyterFrontEnd, factory: IFileBrowserFactory) => {
     app.commands.addCommand(CommandIDs.openFileExplorer, {
@@ -50,16 +42,19 @@ const extension: JupyterFrontEndPlugin<void> = {
         const widget = factory.tracker.currentWidget;
 
         if (widget) {
-           const selection = toArray(widget.selectedItems());
+          const selection = toArray(widget.selectedItems());
 
-           if (selection.length != 1) {
-             return;
-           }
+          if (selection.length !== 1) {
+            return;
+          }
 
-           const selected = selection[0];
-           const path = PathExt.dirname(selected.path);
+          const selected = selection[0];
+          const path = PathExt.dirname(selected.path);
 
-           requestAPI<Response>('open-file-explorer', { method: 'POST', body: JSON.stringify({ path: path }) })
+          requestAPI<IResponse>('open-file-explorer', {
+            method: 'POST',
+            body: JSON.stringify({ path: path })
+          })
             .then(data => {
               // Was a success
             })

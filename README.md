@@ -1,6 +1,6 @@
 # jupyterlab-fileopen
 
-![Github Actions Status](https://github.com/martinRenou/jupyterlab-fileopen/workflows/Build/badge.svg)
+![Github Actions Status](https://github.com/martinRenou/jupyterlab-fileopen/actions/workflows/build.yml/badge.svg)
 
 A JupyterLab extension that allows opening a file using the OS specific file browser.
 
