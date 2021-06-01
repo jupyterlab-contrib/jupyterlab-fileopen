@@ -4,6 +4,8 @@
 
 A JupyterLab extension that allows opening a file using the OS specific file browser.
 
+![jupyterlab-fileopen](images/openfolder.gif)
+
 
 This extension is composed of a Python package named `jupyterlab-fileopen`
 for the server extension and a NPM package named `jupyterlab-fileopen`
