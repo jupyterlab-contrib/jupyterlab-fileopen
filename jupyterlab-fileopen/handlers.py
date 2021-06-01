@@ -4,14 +4,18 @@ from jupyter_server.base.handlers import APIHandler
 from jupyter_server.utils import url_path_join
 import tornado
 
-class RouteHandler(APIHandler):
-    # The following decorator should be present on all verb methods (head, get, post,
-    # patch, put, delete, options) to ensure only authorized user can request the
-    # Jupyter server
+
+class FileOpenHandler(APIHandler):
+
     @tornado.web.authenticated
-    def get(self):
+    async def post(self):
+        # TODO Open file
+
+        data = self.get_json_body()
+
         self.finish(json.dumps({
-            "data": "This is /jupyterlab-fileopen/get_example endpoint!"
+            "openedFile": data["filepath"],
+            "success": True
         }))
 
 
@@ -19,6 +23,8 @@ def setup_handlers(web_app):
     host_pattern = ".*$"
 
     base_url = web_app.settings["base_url"]
-    route_pattern = url_path_join(base_url, "jupyterlab-fileopen", "get_example")
-    handlers = [(route_pattern, RouteHandler)]
+    route_pattern = url_path_join(
+        base_url, "jupyterlab-fileopen", "open-file-explorer"
+    )
+    handlers = [(route_pattern, FileOpenHandler)]
     web_app.add_handlers(host_pattern, handlers)
