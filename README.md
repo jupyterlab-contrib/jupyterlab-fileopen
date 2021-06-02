@@ -2,10 +2,15 @@
 
 ![Github Actions Status](https://github.com/martinRenou/jupyterlab-fileopen/actions/workflows/build.yml/badge.svg)
 
-A JupyterLab extension that allows opening a file using the OS specific file browser.
+A JupyterLab extension that allows opening files and directories with external desktop applications.
 
-![jupyterlab-fileopen](images/openfolder.gif)
+### Reveal in OS-specific file explorer
 
+![Open file explorer](images/openfolder.gif)
+
+### Open files with dedicated desktop application
+
+![Open file with desktop app](images/openfile.gif)
 
 This extension is composed of a Python package named `jupyterlab-fileopen`
 for the server extension and a NPM package named `jupyterlab-fileopen`
