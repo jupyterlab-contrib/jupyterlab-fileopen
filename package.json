@@ -17,6 +17,7 @@
     "email": "martin.renou@gmail.com"
   },
   "files": [
+    "schema/**/*.json",
     "lib/**/*.{d.ts,eot,gif,html,jpg,js,js.map,json,png,svg,woff2,ttf}",
     "style/**/*.{css,.js,eot,gif,html,jpg,json,png,svg,woff2,ttf}"
   ],
@@ -48,10 +49,12 @@
     "@jupyterlab/application": "^3.0.0",
     "@jupyterlab/coreutils": "^5.0.0",
     "@jupyterlab/filebrowser": "^3.0.11",
+    "@jupyterlab/fileeditor": "^3.0.11",
     "@jupyterlab/services": "^6.0.0"
   },
   "devDependencies": {
     "@jupyterlab/builder": "^3.0.0",
+    "@types/codemirror": "^5.60.0",
     "@typescript-eslint/eslint-plugin": "^4.8.1",
     "@typescript-eslint/parser": "^4.8.1",
     "eslint": "^7.14.0",
@@ -69,6 +72,7 @@
   ],
   "styleModule": "style/index.js",
   "jupyterlab": {
+    "schemaDir": "schema",
     "discovery": {
       "server": {
         "managers": [

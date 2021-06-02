@@ -1,0 +1,13 @@
+{
+    "title": "jupyterlab-fileopen settings",
+    "description": "Settings for the JupyterLab-fileopen extension.",
+    "type": "object",
+    "properties": {
+      "extensions": {
+        "type": "array",
+        "title": "extensions",
+        "description": "File extensions that should be automatically opened with a desktop application.",
+        "default": [".ods", ".odt", ".odp", ".pdf", ".xls", ".xlsx", ".doc", ".docx"]
+      }
+    }
+  }
