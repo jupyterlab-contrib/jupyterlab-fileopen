@@ -36,6 +36,7 @@ jobs:
       run: |
         test -d $CONDA_PREFIX/share/jupyter/labextensions/jupyterlab-fileopen
         test -f $CONDA_PREFIX/share/jupyter/labextensions/jupyterlab-fileopen/package.json
+        test -f $CONDA_PREFIX/share/jupyter/labextensions/jupyterlab-fileopen/schemas/jupyterlab-fileopen/jupyterlab-fileopen-settings.json
         test -f $CONDA_PREFIX/etc/jupyter/jupyter_server_config.d/jupyterlab-fileopen.json
 
     - name: Lint check
