@@ -29,6 +29,12 @@ To install the extension, execute:
 pip install jupyterlab-fileopen
 ```
 
+or:
+
+```bash
+conda install jupyterlab-fileopen -c conda-forge
+```
+
 ## Uninstall
 
 To remove the extension, execute:
@@ -37,6 +43,11 @@ To remove the extension, execute:
 pip uninstall jupyterlab-fileopen
 ```
 
+or:
+
+```bash
+conda remove jupyterlab-fileopen -c conda-forge
+```
 
 ## Troubleshoot
 
