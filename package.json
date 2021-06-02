@@ -1,6 +1,6 @@
 {
   "name": "jupyterlab-fileopen",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A JupyterLab extension that allows opening a file using the OS specific file browser.",
   "keywords": [
     "jupyter",
