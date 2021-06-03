@@ -2,8 +2,6 @@ import { Widget } from '@lumino/widgets';
 
 import { toArray } from '@lumino/algorithm';
 
-import { PathExt } from '@jupyterlab/coreutils';
-
 import {
   JupyterFrontEnd,
   JupyterFrontEndPlugin
@@ -138,11 +136,10 @@ const extension: JupyterFrontEndPlugin<void> = {
           }
 
           const selected = selection[0];
-          const path = PathExt.dirname(selected.path);
 
           requestAPI<IResponse>('open-file-explorer', {
             method: 'POST',
-            body: JSON.stringify({ path: path })
+            body: JSON.stringify({ path: selected.path })
           })
             .then(data => {
               // Was a success

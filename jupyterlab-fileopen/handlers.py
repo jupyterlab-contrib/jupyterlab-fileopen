@@ -44,16 +44,15 @@ class FileExplorerHandler(BaseHandler):
         path = self.url2localpath(data["path"])
 
         if sys.platform == "linux" or sys.platform == "linux2":
-            subprocess.Popen(["xdg-open", path])
+            subprocess.run(["xdg-open", os.path.dirname(path)])
         elif sys.platform == "darwin":
-            subprocess.Popen(["open", "-R", path])
+            subprocess.run(["open", "-R", os.path.dirname(path)])
         elif sys.platform == "win32":
             if os.environ["SystemRoot"]:
                 command = os.path.join(os.environ["SystemRoot"], 'explorer.exe')
             else:
                 command = "explorer.exe"
-
-            subprocess.Popen([command, f"/select,{path}"])
+            subprocess.run([command, f"/select,{path}"])
 
         self.finish(json.dumps({
             "success": True
@@ -69,9 +68,11 @@ class FileOpenHandler(BaseHandler):
         path = self.url2localpath(data["path"])
 
         if sys.platform == "linux" or sys.platform == "linux2":
-            subprocess.Popen(["xdg-open", path])
-        elif sys.platform == "darwin" or sys.platform == "win32":
-            subprocess.Popen(["open", path])
+            subprocess.run(["xdg-open", path])
+        elif sys.platform == "darwin":
+            subprocess.run(["open", path])
+        elif sys.platform == "win32":
+            subprocess.run(["start", "", path], shell=True)
 
         self.finish(json.dumps({
             "success": True
