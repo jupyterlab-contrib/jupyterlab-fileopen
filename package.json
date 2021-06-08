@@ -1,6 +1,6 @@
 {
   "name": "jupyterlab-fileopen",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "A JupyterLab extension that allows opening files and directories using desktop applications.",
   "keywords": [
     "jupyter",
