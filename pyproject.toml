@@ -10,7 +10,7 @@ ensured-targets = ["jupyterlab-fileopen/labextension/static/style.js", "jupyterl
 factory = "jupyter_packaging.npm_builder"
 
 [tool.jupyter-packaging.build-args]
-build_cmd = "build:prod"
+build_cmd = "install:extension"
 npm = ["jlpm"]
 
 [tool.check-manifest]

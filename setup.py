@@ -6,6 +6,12 @@ from pathlib import Path
 
 import setuptools
 
+from jupyter_packaging import (
+    wrap_installers,
+    npm_builder,
+    get_data_files
+)
+
 HERE = Path(__file__).parent.resolve()
 
 # The name of the project
@@ -67,19 +73,11 @@ setup_args = dict(
     ],
 )
 
-try:
-    from jupyter_packaging import (
-        wrap_installers,
-        npm_builder,
-        get_data_files
-    )
-    post_develop = npm_builder(
-        build_cmd="install:extension", source_dir="src", build_dir=lab_path, npm=['yarn']
-    )
-    setup_args['cmdclass'] = wrap_installers(post_develop=post_develop, ensured_targets=ensured_targets)
-    setup_args['data_files'] = get_data_files(data_files_spec)
-except ImportError as e:
-    pass
+post_develop = npm_builder(
+    build_cmd="install:extension", source_dir="src", build_dir=lab_path, npm=['jlpm']
+)
+setup_args['cmdclass'] = wrap_installers(post_develop=post_develop, ensured_targets=ensured_targets)
+setup_args['data_files'] = get_data_files(data_files_spec)
 
 if __name__ == "__main__":
     setuptools.setup(**setup_args)
