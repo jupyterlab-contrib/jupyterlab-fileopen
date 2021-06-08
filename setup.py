@@ -73,10 +73,10 @@ setup_args = dict(
     ],
 )
 
-post_develop = npm_builder(
+pre_dist = npm_builder(
     build_cmd="install:extension", source_dir="src", build_dir=lab_path, npm=['jlpm']
 )
-setup_args['cmdclass'] = wrap_installers(post_develop=post_develop, ensured_targets=ensured_targets)
+setup_args['cmdclass'] = wrap_installers(pre_dist=pre_dist, ensured_targets=ensured_targets)
 setup_args['data_files'] = get_data_files(data_files_spec)
 
 if __name__ == "__main__":
