@@ -7,9 +7,9 @@
     "jupyterlab",
     "jupyterlab-extension"
   ],
-  "homepage": "https://github.com/martinRenou/jupyterlab-fileopen",
+  "homepage": "https://github.com/jupyterlab-contrib/jupyterlab-fileopen",
   "bugs": {
-    "url": "https://github.com/martinRenou/jupyterlab-fileopen/issues"
+    "url": "https://github.com/jupyterlab-contrib/jupyterlab-fileopen/issues"
   },
   "license": "BSD-3-Clause",
   "author": {
@@ -26,7 +26,7 @@
   "style": "style/index.css",
   "repository": {
     "type": "git",
-    "url": "https://github.com/martinRenou/jupyterlab-fileopen.git"
+    "url": "https://github.com/jupyterlab-contrib/jupyterlab-fileopen.git"
   },
   "scripts": {
     "build": "jlpm run build:lib && jlpm run build:labextension:dev",
