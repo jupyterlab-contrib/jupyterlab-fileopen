@@ -1,16 +1,20 @@
 # jupyterlab-fileopen
 
-![Github Actions Status](https://github.com/jupyterlab-contrib/jupyterlab-fileopen/actions/workflows/build.yml/badge.svg)
+[![Extension status](https://img.shields.io/badge/status-ready-success "ready to be used")](https://jupyterlab-contrib.github.io/)
+[![Github Actions Status](https://github.com/jupyterlab-contrib/jupyterlab-fileopen/actions/workflows/build.yml/badge.svg)](https://github.com/jupyterlab-contrib/jupyterlab-fileopen/actions?query=workflow%3ATests)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/jupyterlab-contrib/jupyterlab-fileopen/master?urlpath=lab)
+[![PyPI](https://img.shields.io/pypi/v/jupyterlab-fileopen)](https://pypi.org/project/jupyterlab-fileopen/)
+[![Conda (channel only)](https://img.shields.io/conda/vn/conda-forge/jupyterlab-fileopen)](https://anaconda.org/conda-forge/jupyterlab-fileopen)
 
 A JupyterLab extension that allows opening files and directories with external desktop applications.
 
 ### Reveal in OS-specific file explorer
 
-![Open file explorer](images/openfolder.gif)
+![Open file explorer](https://raw.githubusercontent.com/jupyterlab-contrib/jupyterlab-fileopen/master/images/openfolder.gif)
 
 ### Open files with dedicated desktop application
 
-![Open file with desktop app](images/openfile.gif)
+![Open file with desktop app](https://raw.githubusercontent.com/jupyterlab-contrib/jupyterlab-fileopen/master/images/openfile.gif)
 
 This extension is composed of a Python package named `jupyterlab-fileopen`
 for the server extension and a NPM package named `jupyterlab-fileopen`
