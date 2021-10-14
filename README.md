@@ -1,6 +1,6 @@
 # jupyterlab-fileopen
 
-![Github Actions Status](https://github.com/martinRenou/jupyterlab-fileopen/actions/workflows/build.yml/badge.svg)
+![Github Actions Status](https://github.com/jupyterlab-contrib/jupyterlab-fileopen/actions/workflows/build.yml/badge.svg)
 
 A JupyterLab extension that allows opening files and directories with external desktop applications.
 
