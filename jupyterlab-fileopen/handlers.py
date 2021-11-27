@@ -52,7 +52,7 @@ class FileExplorerHandler(BaseHandler):
                 command = os.path.join(os.environ["SystemRoot"], 'explorer.exe')
             else:
                 command = "explorer.exe"
-            subprocess.run([command, f"/select,{path}"])
+            subprocess.run(f"{command} /select,{path}", shell=True)
 
         self.finish(json.dumps({
             "success": True
